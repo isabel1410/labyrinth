@@ -332,6 +332,7 @@ namespace Unity.FPS.Game
 
         public void ShowWeapon(bool show)
         {
+            return;
             WeaponRoot.SetActive(show);
 
             if (show && ChangeWeaponSfx)
