@@ -473,5 +473,13 @@ namespace Unity.FPS.Gameplay
             IsCrouching = crouched;
             return true;
         }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("WinCollider"))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("WinScene");
+            }
+        }
     }
 }
