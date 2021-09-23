@@ -83,7 +83,7 @@ public class LaserMovement : MonoBehaviour
         }
 
         //Move closer to waypoint position
-        Vector3 newPosition = Vector3.MoveTowards(transform.position, waypoint.position, (float) Speed / 500);
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, waypoint.position, (float) Speed / 2 * Time.deltaTime);
         transform.position = newPosition;
     }
 }
