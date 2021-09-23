@@ -237,7 +237,11 @@ namespace Unity.FPS.Gameplay
                 float i = isGamepad ? Input.GetAxis(stickInputName) : Input.GetAxisRaw(mouseInputName);
 
                 // handle inverting vertical input
-                if (InvertYAxis)
+
+                if ((mouseInputName == "Mouse X" || stickInputName == "Look X") && InvertXAxis)
+                    i *= -1f;
+
+                if ((mouseInputName == "Mouse Y" || stickInputName == "Look Y") && InvertYAxis)
                     i *= -1f;
 
                 // apply sensitivity multiplier
@@ -262,6 +266,12 @@ namespace Unity.FPS.Gameplay
             }
 
             return 0f;
+        }
+
+        public void InvertAxisY()
+        {
+            //Toggles axis based on check state of the button
+            InvertYAxis = !InvertYAxis;
         }
     }
 }
